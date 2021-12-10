@@ -42,6 +42,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
         // 1. 创建 selector, 管理多个 channel
         Selector selector = Selector.open();
+        // 创建server服务器
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.configureBlocking(false);
         // 2. 建立 selector 和 channel 的联系（注册）
@@ -52,7 +53,7 @@ public class Server {
         log.debug("sscKey:{}", sscKey);
         ssc.bind(new InetSocketAddress(80));
         while (true) {
-            // 3. select 方法, 没有事件发生，线程阻塞，有事件，线程才会恢复运行
+            // 3. select 方法, 没有事件发生n，线程阻塞，有事件，线程才会恢复运行
             // select 在事件未处理时，它不会阻塞, 事件发生后要么处理，要么取消，不能置之不理
             selector.select();
             // 4. 处理事件, selectedKeys 内部包含了所有发生的事件
@@ -71,6 +72,7 @@ public class Server {
                     // 将一个 byteBuffer 作为附件关联到 selectionKey 上
                     SelectionKey scKey = sc.register(selector, 0, buffer);
                     scKey.interestOps(SelectionKey.OP_READ);
+
                     log.debug("{}", sc);
                     log.debug("scKey:{}", scKey);
                 } else if (key.isReadable()) { // 如果是 read
@@ -81,7 +83,7 @@ public class Server {
                         int read = channel.read(buffer); // 如果是正常断开，read 的方法的返回值是 -1
                         if(read == -1) {
                             key.cancel();
-                        } else {
+                         } else {
                             split(buffer);
                             // 需要扩容
                             if (buffer.position() == buffer.limit()) {
@@ -97,6 +99,7 @@ public class Server {
                         key.cancel();  // 因为客户端断开了,因此需要将 key 取消（从 selector 的 keys 集合中真正删除 key）
                     }
                 }
+           //     iter.remove();
             }
         }
     }
