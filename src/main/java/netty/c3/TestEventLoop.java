@@ -20,10 +20,10 @@ public class TestEventLoop {
         EventLoopGroup group = new NioEventLoopGroup(2); // io 事件，普通任务，定时任务
 //        EventLoopGroup group = new DefaultEventLoopGroup(); // 普通任务，定时任务
         // 2. 获取下一个事件循环对象
-        System.out.println(group.next());
-        System.out.println(group.next());
-        System.out.println(group.next());
-        System.out.println(group.next());
+        log.info(group.next().toString());
+        log.info(group.next().toString());
+        log.info(group.next().toString());
+        log.info(group.next().toString());
 
         // 3. 执行普通任务
         /*group.next().execute(() -> {
@@ -37,7 +37,6 @@ public class TestEventLoop {
         // 4. 执行定时任务
         group.next().scheduleAtFixedRate(() -> {
             log.info("ok");
-            System.out.println("ok");
         }, 0, 1, TimeUnit.SECONDS);
 
         log.info("main");

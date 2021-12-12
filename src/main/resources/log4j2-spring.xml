@@ -10,9 +10,9 @@
         <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
         <!-- 定义日志存储的路径，不要配置相对路径 -->
         <!-- 定义日志存储的路径，不要配置相对路径 -->
-<!--        <property name="FILE_PATH" value="D:/logs/demo" />-->
-        <property name="FILE_PATH" value="/opt/utilsServer/serverlog/" />
-        <property name="FILE_NAME" value="user-center-api" />
+        <property name="FILE_PATH" value="D:/logs/demo" />
+<!--        <property name="FILE_PATH" value="/opt/utilsServer/serverlog/" />-->
+        <property name="FILE_NAME" value="netty-demo" />
     </Properties>
 
     <!--自定义日志级别-->
