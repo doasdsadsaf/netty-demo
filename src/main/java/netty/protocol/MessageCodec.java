@@ -46,6 +46,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         out.writeInt(bytes.length);
         // 8 实际内容
         out.writeBytes(bytes);
+        System.out.println("1");
     }
 
     // 解码
