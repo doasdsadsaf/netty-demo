@@ -44,7 +44,7 @@ public class HelloClient {
                 .sync()
                 // 连接建立好了 代表连接对象
                 .channel()
-                // 14 发送数据
+                // 14 发送数据l
                 .writeAndFlush(new Date() + ": hello world!"); // 7
 
     }
