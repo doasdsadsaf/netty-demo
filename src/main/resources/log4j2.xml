@@ -10,5 +10,13 @@
         <Root level="INFO">
             <AppenderRef ref="Console" />
         </Root>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console" />
+        </Root>
     </Loggers>
+
+    <logger name="io.netty.handler.logging.LoggingHandler" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
 </Configuration>
