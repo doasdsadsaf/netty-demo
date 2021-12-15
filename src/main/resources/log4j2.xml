@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="warn">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%m%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console" />
+        </Root>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+
+    <logger name="io.netty.handler.logging.LoggingHandler" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+</Configuration>

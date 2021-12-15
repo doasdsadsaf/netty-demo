@@ -2,9 +2,9 @@ package netty.c3;
 
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import nio.Server;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @描述
  */
 public class TestEventLoop {
-    private static Logger log = LoggerFactory.getLogger(TestEventLoop.class);
+    private static Logger log = LogManager.getLogger(TestEventLoop.class);
     public static void main(String[] args) {
         // 1. 创建事件循环组
         EventLoopGroup group = new NioEventLoopGroup(2); // io 事件，普通任务，定时任务
